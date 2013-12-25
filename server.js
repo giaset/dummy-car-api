@@ -6,11 +6,8 @@ function start(route, handle) {
 		var pathname = url.parse(request.url).pathname;
 		if (pathname != "/favicon.ico") {
 			console.log("\nRequest for " + pathname + " received.");
-			route(handle, pathname);
+			route(handle, pathname, response);
 		}
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		response.write("Hello World");
-		response.end();
 	}
 
 	http.createServer(onRequest).listen(8888);
